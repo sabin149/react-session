@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "userId": 1,
+      "name": "John Doe",
+      "email": "john@doe.com",
+      "age": 18,
+      "gender": "male",
+      "phoneNumber": "9841247730",
+      "status": "active"
+    }
+  ]
+}
