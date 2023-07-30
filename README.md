@@ -3,6 +3,7 @@
 Prerequisites
 
 - Node.js (version 15 or above)
+
 ### Installation
 
 - Clone the repository:
@@ -15,14 +16,28 @@ Prerequisites
   ```
 - Install the dependencies:
 
-    ```
-    npm install
-    ```
-- Start the development server:
+  ```
+  npm install
+  ```
+
+- Create a .env.local file in the project root and add the following environment variables
+
+  ```
+    VITE_BACKEND_API=http://localhost:3000
+  ```
+
+- Start the json server:
+
+  ```
+  npm run json-server
+  ```
+
+- Start the frontend server:
 
   ```
   npm run dev
   ```
+
 ### Additional Scripts
 
 - `npm run preview`: Preview the production build locally.
