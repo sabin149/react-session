@@ -15,7 +15,8 @@ export const useGetUserById = (id: string) => {
   return useQuery<IUserResponseItem, Error>({
     queryKey: [UserQueryKey, id],
     queryFn: () => getUserById(id),
-    keepPreviousData: true
+    keepPreviousData: true,
+    enabled: !!id
   });
 };
 
@@ -24,5 +25,5 @@ async function getAllUsers(): Promise<IUserResponseItem[]> {
 }
 
 async function getUserById(id: string): Promise<IUserResponseItem> {
-  return await fetchData<IUserResponseItem>('users/fetch/?Id=' + id);
+  return await fetchData<IUserResponseItem>(`users/${id}`);
 }

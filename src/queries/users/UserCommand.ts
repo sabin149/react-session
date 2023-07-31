@@ -30,7 +30,7 @@ export const useUpdateUser = () => {
   });
 };
 
-export const useDeleteFinancialInstitution = () => {
+export const useDeleteUser = () => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (userId: number) => deleteUser(userId),
@@ -49,7 +49,7 @@ async function addUser(data: IUserInfo): Promise<string> {
 }
 async function updateUser(data: IUserInfo): Promise<string> {
   const postPayload = UserInfoToApiMapper(data);
-  return await putData<'string'>(`users/${postPayload.userId}`, postPayload);
+  return await putData<'string'>(`users/${postPayload.id}`, postPayload);
 }
 async function deleteUser(userId: number): Promise<string> {
   return await deleteData<'string'>(`users/${userId}`);
