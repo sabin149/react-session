@@ -7,9 +7,9 @@ const UserSchema = object({
   age: string().nonempty(getRequiredMessage('Age')),
   gender: string().nonempty(getRequiredMessage('Gender')),
   mobileNumber: string()
-    .nonempty(getRequiredMessage('Phone Number'))
-    .min(10, 'Phone Number must be 10 digits!')
-    .max(10, 'Phone Number must be 10 digits!'),
+    .nonempty(getRequiredMessage('Mobile Number'))
+    .min(10, 'Mobile Number must be 10 digits!')
+    .max(10, 'Mobile Number must be 10 digits!'),
   status: string().nonempty(getRequiredMessage('Status'))
 });
 export default UserSchema;

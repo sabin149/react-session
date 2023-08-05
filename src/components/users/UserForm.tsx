@@ -9,7 +9,7 @@ const UserForm = () => {
   } = useFormContext<TUserSchema>();
 
   return (
-    <Container maxW='2xl'>
+    <Container maxW='2xl' mt={5}>
       <Card>
         <CardBody>
           <Stack>
