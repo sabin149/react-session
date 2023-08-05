@@ -7,25 +7,27 @@ import { useEffect } from 'react';
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 import UserSchema, { TUserSchema } from 'utils/schema/userSchema';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast/headless';
+import { toast } from 'react-hot-toast';
 import { useGetUserById } from 'queries/users/UserQuery';
+
+const initialDefaultValues = {
+  username: '',
+  emailAddress: '',
+  mobileNumber: '',
+  age: '',
+  gender: '',
+  status: ''
+};
 
 const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?: string }) => {
   useTitle('Add User');
   const navigate = useNavigate();
   const addUserData = useAddUser();
-  const oneUserData = useGetUserById(userId ?? '');
+  const oneUserData = useGetUserById(userId);
   const updateUserData = useUpdateUser();
   const methods = useForm<TUserSchema>({
     resolver: zodResolver(UserSchema),
-    defaultValues: {
-      username: '',
-      emailAddress: '',
-      mobileNumber: '',
-      age: '',
-      gender: '',
-      status: ''
-    }
+    defaultValues: initialDefaultValues
   });
 
   const { handleSubmit, reset, setValue } = methods;
@@ -58,19 +60,25 @@ const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?:
   }, [isEditing, oneUserData.data, oneUserData.isSuccess, setValue]);
 
   useEffect(() => {
+    if (oneUserData.isError) {
+      toast.error('Something went wrong! Please try again.');
+    }
+  }, [oneUserData.isError]);
+
+  useEffect(() => {
     if (addUserData.isSuccess || updateUserData.isSuccess) {
+      toast.success(`User ${isEditing ? 'updated' : 'added'} successfully!`);
       reset();
       navigate('/users');
-      toast.success('User Added Successfully!');
     }
-  }, [addUserData.isSuccess, navigate, reset, updateUserData.isSuccess]);
+  }, [addUserData.isSuccess, isEditing, navigate, reset, updateUserData.isSuccess]);
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmitHandler)} noValidate>
         <Center
           sx={{
-            height: '100vh',
+            mt: '10',
             flexDirection: 'column'
           }}
         >

@@ -17,6 +17,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "src", "*.spec.ts"],
+  "include": ["vite.config.ts", "src", "*.spec.ts", "test-setup/setupTest.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

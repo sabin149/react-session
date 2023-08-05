@@ -4,13 +4,14 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ChakraProvider } from '@chakra-ui/react';
 import Router from 'router/Router';
 import { Suspense } from 'react';
+import Loading from 'components/common/Loading';
 
 const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <ChakraProvider>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<Loading />}>
         <QueryClientProvider client={queryClient}>
           <Toaster />
           <Router />

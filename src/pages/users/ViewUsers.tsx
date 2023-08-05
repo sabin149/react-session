@@ -33,7 +33,7 @@ const ViewUsers = () => {
   }, [error?.message, isError]);
 
   return (
-    <Box mx={'36'} mt={'1'}>
+    <Box mx={'32'} mt={'3.5'}>
       <Flex justifyContent={'space-between'}>
         <Heading as='h3' size='lg' mb={'7'}>
           All Users
