@@ -6,10 +6,18 @@ import { useEffect } from 'react';
 import { FormProvider, useForm, SubmitHandler } from 'react-hook-form';
 import UserSchema, { TUserSchema } from 'utils/schema/userSchema';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-hot-toast/headless';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 import { addUser, getUserById, updateUser } from 'redux/slice/userSlice';
 import { SUCCESS } from 'redux/constant/constant';
+
+const initialDefaultValues = {
+  username: '',
+  emailAddress: '',
+  mobileNumber: '',
+  age: '',
+  gender: '',
+  status: ''
+};
 
 const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?: string }) => {
   useTitle('Add User');
@@ -19,14 +27,7 @@ const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?:
 
   const methods = useForm<TUserSchema>({
     resolver: zodResolver(UserSchema),
-    defaultValues: {
-      username: '',
-      emailAddress: '',
-      mobileNumber: '',
-      age: '',
-      gender: '',
-      status: ''
-    }
+    defaultValues: initialDefaultValues
   });
 
   const { handleSubmit, reset, setValue } = methods;
@@ -62,7 +63,6 @@ const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?:
     if (addUserStatus === SUCCESS || updateUserStatus === SUCCESS) {
       reset();
       navigate('/users');
-      toast.success('User Added Successfully!');
     }
   }, [addUserStatus, navigate, reset, updateUserStatus]);
 
@@ -75,7 +75,7 @@ const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?:
       <form onSubmit={handleSubmit(onSubmitHandler)} noValidate>
         <Center
           sx={{
-            height: '100vh',
+            mt: '10',
             flexDirection: 'column'
           }}
         >

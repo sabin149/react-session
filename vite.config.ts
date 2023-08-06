@@ -6,15 +6,15 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  server: {
-    strictPort: true
-  },
+  // server: {
+  //   strictPort: true
+  // },
 
   plugins: [react(), tsconfigPaths()],
   test: {
-    globals: true,
+    // globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setup.ts'],
+    setupFiles: ['./test-setup/setupTest.ts'],
     css: false
   }
 });

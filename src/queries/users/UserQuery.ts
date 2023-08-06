@@ -11,7 +11,7 @@ export const useGetUsers = () => {
   });
 };
 
-export const useGetUserById = (id: string) => {
+export const useGetUserById = (id: string | undefined) => {
   return useQuery<IUserResponseItem, Error>({
     queryKey: [UserQueryKey, id],
     queryFn: () => getUserById(id),
@@ -24,6 +24,6 @@ async function getAllUsers(): Promise<IUserResponseItem[]> {
   return await fetchData<IUserResponseItem[]>('users');
 }
 
-async function getUserById(id: string): Promise<IUserResponseItem> {
+async function getUserById(id: string | undefined): Promise<IUserResponseItem> {
   return await fetchData<IUserResponseItem>(`users/${id}`);
 }
