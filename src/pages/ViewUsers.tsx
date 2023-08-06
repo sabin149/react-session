@@ -2,16 +2,20 @@ import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Heading, Box, ButtonGr
 import GetBadgeByStatus from 'components/GetBadgeByStatus';
 import useTitle from 'hooks/useTitile';
 import { useDeleteUser } from 'queries/users/UserCommand';
-import { useGetUsers } from 'queries/users/UserQuery';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { deleteUser, getAllUsers } from 'redux/slice/userSlice';
+import { useAppDispatch, useAppSelector } from 'redux/store';
+import { ERROR, SUCCESS } from 'redux/constant/constant';
 
 const ViewUsers = () => {
   useTitle('View Users');
   const navigate = useNavigate();
-  const { data, isError, error, isLoading } = useGetUsers();
-  const deleteUsers = useDeleteUser();
+  const dispatch = useAppDispatch();
+  const { usersData, usersStatus, usersError, deleteUserStatus } = useAppSelector((state) => state.user);
+
+  // const deleteUsers = useDeleteUser();
 
   const handleEdit = (userId: number) => {
     if (userId) navigate(`/users/update/${userId}`);
@@ -20,17 +24,21 @@ const ViewUsers = () => {
   const handleDelete = (userId: number) => {
     if (userId) {
       const confirm = window.confirm('Are you sure you want to delete this user?');
-      if (confirm) deleteUsers.mutate(userId);
+      if (confirm) dispatch(deleteUser(userId));
     }
   };
 
   useEffect(() => {
-    deleteUsers.isSuccess && toast.success('User Deleted Successfully!');
-  }, [deleteUsers.isSuccess]);
+    deleteUserStatus === SUCCESS && toast.success('User Deleted Successfully!');
+  }, [deleteUserStatus]);
 
   useEffect(() => {
-    isError && toast.error(error?.message);
-  }, [error?.message, isError]);
+    usersStatus === ERROR && toast.error(usersError);
+  }, [usersError, usersStatus]);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, [dispatch]);
 
   return (
     <Box mx={'36'} mt={'1'}>
@@ -60,8 +68,8 @@ const ViewUsers = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {!isLoading &&
-                  data?.map((user, index) => (
+                {usersStatus === SUCCESS &&
+                  usersData?.map((user, index) => (
                     <Tr
                       key={user.id}
                       sx={{
