@@ -19,7 +19,6 @@ const Router = () => {
           <Route path='add' element={<AddUser />} />
           <Route path='update/:userId' element={<UpdateUser />} />
         </Route>
-
         <Route path='*' element={<ErrorBoundary isNotFoundError={true} />} />
       </Route>
     )

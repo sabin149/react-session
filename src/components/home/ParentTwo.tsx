@@ -1,5 +1,6 @@
 import { Box, Container, Divider, FormControl, FormLabel, Heading, VStack, Input } from '@chakra-ui/react';
 import React from 'react';
+// import { useUserStore } from 'store/userStore';
 
 interface IParentTwoProps {
   name: string;
@@ -7,8 +8,12 @@ interface IParentTwoProps {
 }
 
 const ParentTwo = ({ name, setName }: IParentTwoProps) => {
+  // const setUserInfo = useUserStore((state) => state.setUserInfo);
+  // const userInfo = useUserStore((state) => state.userInfo);
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
+    // setUserInfo({ name: e.target.value });
   };
 
   return (
@@ -24,7 +29,10 @@ const ParentTwo = ({ name, setName }: IParentTwoProps) => {
           ParentTwo
         </Heading>
         <Divider />
+        {/* props drilling */}
         <Box>Name - {name}</Box>
+        {/* zustand store */}
+        {/* <Box>Name - {userInfo.name}</Box> */}
         <Container maxW='2xl' mt={2.5}>
           <FormControl>
             <FormLabel>Name</FormLabel>

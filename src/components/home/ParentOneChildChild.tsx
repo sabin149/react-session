@@ -1,6 +1,8 @@
 import { Box, Container, Divider, Heading, VStack } from '@chakra-ui/react';
+// import { useUserStore } from 'store/userStore';
 
 const ParentOneChildChild = ({ name }: { name: string }) => {
+  // const userInfo = useUserStore((state) => state.userInfo);
   return (
     <Container
       maxW={'5xl'}
@@ -14,7 +16,10 @@ const ParentOneChildChild = ({ name }: { name: string }) => {
           ParentOneChildsChild
         </Heading>
         <Divider />
-        <Box>Name - {name}</Box>
+        {/* //! Props Driling */}
+        <Box> Name - {name}</Box>
+        {/*//! From Zustand store */}
+        {/* <Box> Name - {userInfo.name}</Box> */}
       </VStack>
     </Container>
   );

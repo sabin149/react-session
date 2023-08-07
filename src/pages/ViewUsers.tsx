@@ -1,5 +1,5 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Heading, Box, ButtonGroup, Button, Card, CardBody, Flex } from '@chakra-ui/react';
-import GetBadgeByStatus from 'components/GetBadgeByStatus';
+import GetBadgeByStatus from 'components/common/GetBadgeByStatus';
 import useTitle from 'hooks/useTitile';
 import { useDeleteUser } from 'queries/users/UserCommand';
 import { useGetUsers } from 'queries/users/UserQuery';
