@@ -22,6 +22,7 @@ const Header = () => {
           <HStack as='nav' spacing={4} display={{ base: 'none', md: 'flex' }} alignItems='center'>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
+            <Link to='/demo'>Simple Demo</Link>
           </HStack>
         </HStack>
         <Spacer />

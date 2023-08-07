@@ -4,6 +4,7 @@ import RootLayout from 'layout/RootLayout';
 import UserLayout from 'layout/UserLayout';
 import ErrorBoundary from './ErrorBoundary';
 import Home from 'pages/home/Home';
+import SimpleDemo from 'pages/simpleDemo/SimpleDemo';
 
 const AddUser = lazy(() => import('pages/users/AddUser'));
 const UpdateUser = lazy(() => import('pages/users/UpdateUser'));
@@ -19,7 +20,7 @@ const Router = () => {
           <Route path='add' element={<AddUser />} />
           <Route path='update/:userId' element={<UpdateUser />} />
         </Route>
-
+        <Route path='demo' element={<SimpleDemo />} />
         <Route path='*' element={<ErrorBoundary isNotFoundError={true} />} />
       </Route>
     )
