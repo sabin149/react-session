@@ -1,7 +1,6 @@
-import { Container, Heading, VStack } from '@chakra-ui/react';
-import ParentOneChildChild from './ParentOneChildChild';
+import { Box, Container, Divider, Heading, VStack } from '@chakra-ui/react';
 
-const ParentOneChild = ({ name }: { name: string }) => {
+const ParentOneChildChild = ({ name }: { name: string }) => {
   return (
     <Container
       maxW={'5xl'}
@@ -10,14 +9,15 @@ const ParentOneChild = ({ name }: { name: string }) => {
         border: '1px solid gray'
       }}
     >
-      <VStack mb={2}>
+      <VStack>
         <Heading as='h4' size='md'>
           ParentOneChild
         </Heading>
+        <Divider />
+        <Box>Name - {name}</Box>
       </VStack>
-      <ParentOneChildChild name={name} />
     </Container>
   );
 };
 
-export default ParentOneChild;
+export default ParentOneChildChild;
