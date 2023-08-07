@@ -35,6 +35,15 @@
       "gender": "male",
       "phoneNumber": "9841247731",
       "status": "inactive"
+    },
+    {
+      "id": 35433739,
+      "name": "Kristina Neupane",
+      "email": "kris@gmail.com",
+      "age": 20,
+      "gender": "female",
+      "phoneNumber": "9812345678",
+      "status": "active"
     }
   ]
 }

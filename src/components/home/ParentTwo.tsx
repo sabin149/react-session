@@ -1,4 +1,4 @@
-import { Box, Container, Divider, FormControl, FormLabel, Heading, VStack, Input } from '@chakra-ui/react';
+import { Container, Divider, FormControl, FormLabel, Heading, VStack, Input } from '@chakra-ui/react';
 import React from 'react';
 
 interface IParentTwoProps {
