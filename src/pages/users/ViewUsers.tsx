@@ -1,5 +1,5 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Heading, Box, ButtonGroup, Button, Card, CardBody, Flex } from '@chakra-ui/react';
-import GetBadgeByStatus from 'components/GetBadgeByStatus';
+import GetBadgeByStatus from 'components/common/GetBadgeByStatus';
 import useTitle from 'hooks/useTitile';
 import { useDeleteUser } from 'queries/users/UserCommand';
 import { useGetUsers } from 'queries/users/UserQuery';
@@ -38,11 +38,10 @@ const ViewUsers = () => {
         <Heading as='h3' size='lg' mb={'7'}>
           All Users
         </Heading>
-        <Button colorScheme='green' onClick={() => navigate('/users/add')}>
+        <Button colorScheme='green' id='add_new_btn' onClick={() => navigate('/users/add')}>
           Add New
         </Button>
       </Flex>
-
       <Card>
         <CardBody>
           <TableContainer>

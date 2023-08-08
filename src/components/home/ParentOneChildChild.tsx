@@ -1,5 +1,4 @@
 import { Box, Container, Divider, Heading, VStack } from '@chakra-ui/react';
-
 const ParentOneChildChild = ({ name }: { name: string }) => {
   return (
     <Container
@@ -14,7 +13,8 @@ const ParentOneChildChild = ({ name }: { name: string }) => {
           ParentOneChildsChild
         </Heading>
         <Divider />
-        <Box>Name - {name}</Box>
+
+        <Box> Name - {name}</Box>
       </VStack>
     </Container>
   );

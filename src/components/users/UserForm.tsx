@@ -19,7 +19,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Name</FormLabel>
-                  <Input type='text' {...field} />
+                  <Input type='text' {...field} id='name' />
                   <FormHelperText color='red'>{errors.username && errors.username.message}</FormHelperText>
                 </FormControl>
               )}
@@ -30,7 +30,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Email Address</FormLabel>
-                  <Input type='email' {...field} />
+                  <Input type='email' {...field} id='email' />
                   <FormHelperText color='red'>{errors.emailAddress && errors.emailAddress.message}</FormHelperText>
                 </FormControl>
               )}
@@ -41,7 +41,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Mobile Number</FormLabel>
-                  <Input type='number' {...field} />
+                  <Input type='number' {...field} id='mobile' />
                   <FormHelperText color='red'>{errors.mobileNumber && errors.mobileNumber.message}</FormHelperText>
                 </FormControl>
               )}
@@ -52,7 +52,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Age</FormLabel>
-                  <Input type='number' {...field} />
+                  <Input type='number' {...field} id='age' />
                   <FormHelperText color='red'>{errors.age && errors.age.message}</FormHelperText>
                 </FormControl>
               )}
@@ -63,7 +63,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Gender</FormLabel>
-                  <Select placeholder='Select Gender' {...field}>
+                  <Select placeholder='Select Gender' {...field} id='gender'>
                     <option value='male'>Male</option>
                     <option value='female'>Female</option>
                   </Select>
@@ -77,7 +77,7 @@ const UserForm = () => {
               render={({ field }) => (
                 <FormControl>
                   <FormLabel>Status</FormLabel>
-                  <Select placeholder='Select Status' {...field}>
+                  <Select placeholder='Select Status' {...field} id='status'>
                     <option value='active'>Active</option>
                     <option value='inactive'>Inactive</option>
                   </Select>

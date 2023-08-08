@@ -10,15 +10,6 @@
       "status": "inactive"
     },
     {
-      "id": 4000000,
-      "name": "John Doe",
-      "email": "john@doe.com",
-      "age": 18,
-      "gender": "male",
-      "phoneNumber": "9841247730",
-      "status": "active"
-    },
-    {
       "id": 79312082,
       "name": "sabind",
       "email": "banktest12@aloi.com",
@@ -26,15 +17,6 @@
       "gender": "male",
       "phoneNumber": "9841247730",
       "status": "active"
-    },
-    {
-      "id": 33211378,
-      "name": "John Doe1",
-      "email": "john@doe.com",
-      "age": 20,
-      "gender": "male",
-      "phoneNumber": "9841247731",
-      "status": "inactive"
     }
   ]
 }

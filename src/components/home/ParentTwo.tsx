@@ -2,13 +2,12 @@ import { Box, Container, Divider, FormControl, FormLabel, Heading, VStack, Input
 import React from 'react';
 
 interface IParentTwoProps {
-  name: string;
-  setName: React.Dispatch<React.SetStateAction<string>>;
+  handleChange: (name: string) => void;
 }
 
-const ParentTwo = ({ name, setName }: IParentTwoProps) => {
+const ParentTwo = ({ handleChange }: IParentTwoProps) => {
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
+    handleChange(e.target.value);
   };
 
   return (
@@ -24,7 +23,6 @@ const ParentTwo = ({ name, setName }: IParentTwoProps) => {
           ParentTwo
         </Heading>
         <Divider />
-        <Box>Name - {name}</Box>
         <Container maxW='2xl' mt={2.5}>
           <FormControl>
             <FormLabel>Name</FormLabel>
