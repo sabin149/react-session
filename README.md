@@ -46,3 +46,6 @@ Prerequisites
 - `npm run prettier`: Check code formatting using Prettier.
 - `npm run prettier`:fix: Automatically fix code formatting issues.
 - `npm run format`: Format code using Prettier and fix code quality issues.
+- `npm run test`: To run all the tests.
+- `npm run json-server`: To start the json server.
+- `npm run cypress`: To start the cypress
