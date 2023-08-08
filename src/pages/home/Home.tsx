@@ -1,12 +1,14 @@
-import { Box, Container, Heading, VStack } from '@chakra-ui/react';
+import { Box, Container, VStack } from '@chakra-ui/react';
 import ParentOne from 'components/home/ParentOne';
 import ParentTwo from 'components/home/ParentTwo';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 
 const Home = () => {
   const [name, setName] = useState('');
 
-  const memoName = useMemo(() => name, [name]);
+  const handleNameChange = (name: string) => {
+    setName(name);
+  };
 
   return (
     <Box mt={9}>
@@ -19,13 +21,9 @@ const Home = () => {
             my: 5
           }}
         >
-          <Heading as='h4' size='md' mb={2}>
-            Home Page
-          </Heading>
-
-          <ParentTwo name={memoName} setName={setName} />
+          <ParentTwo handleChange={handleNameChange} />
           <br />
-          <ParentOne name={memoName} />
+          <ParentOne name={name} />
         </Container>
       </VStack>
     </Box>

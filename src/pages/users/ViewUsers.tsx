@@ -38,11 +38,10 @@ const ViewUsers = () => {
         <Heading as='h3' size='lg' mb={'7'}>
           All Users
         </Heading>
-        <Button colorScheme='green' onClick={() => navigate('/users/add')}>
+        <Button colorScheme='green' id='add_new_btn' onClick={() => navigate('/users/add')}>
           Add New
         </Button>
       </Flex>
-
       <Card>
         <CardBody>
           <TableContainer>
