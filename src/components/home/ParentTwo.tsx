@@ -23,7 +23,6 @@ const ParentTwo = ({ handleChange }: IParentTwoProps) => {
           ParentTwo
         </Heading>
         <Divider />
-
         <Container maxW='2xl' mt={2.5}>
           <FormControl>
             <FormLabel>Name</FormLabel>
