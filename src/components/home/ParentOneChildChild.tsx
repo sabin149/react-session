@@ -1,6 +1,7 @@
 import { Box, Container, Divider, Heading, VStack } from '@chakra-ui/react';
-
-const ParentOneChildChild = ({ name }: { name: string }) => {
+import { useAppSelector } from 'redux/store';
+const ParentOneChildChild = () => {
+  const { name } = useAppSelector((state) => state.name);
   return (
     <Container
       maxW={'5xl'}
@@ -14,7 +15,8 @@ const ParentOneChildChild = ({ name }: { name: string }) => {
           ParentOneChildsChild
         </Heading>
         <Divider />
-        <Box>Name - {name}</Box>
+
+        <Box> Name - {name}</Box>
       </VStack>
     </Container>
   );

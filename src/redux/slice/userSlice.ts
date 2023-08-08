@@ -83,7 +83,23 @@ const initialState: TUserState = {
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    resetUsersStatus: (state) => {
+      state.usersStatus = IDLE;
+    },
+    resetUserStatus: (state) => {
+      state.userByIdStatus = IDLE;
+    },
+    resetAddUserStatus: (state) => {
+      state.addUserStatus = IDLE;
+    },
+    resetUpdateUserStatus: (state) => {
+      state.updateUserStatus = IDLE;
+    },
+    resetDeleteStatus: (state) => {
+      state.deleteUserStatus = IDLE;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getAllUsers.pending, (state) => {
@@ -143,4 +159,5 @@ const userSlice = createSlice({
   }
 });
 
+export const { resetAddUserStatus, resetDeleteStatus, resetUpdateUserStatus, resetUserStatus, resetUsersStatus } = userSlice.actions;
 export default userSlice.reducer;

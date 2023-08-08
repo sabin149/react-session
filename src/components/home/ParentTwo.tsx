@@ -1,15 +1,17 @@
-import { Box, Container, Divider, FormControl, FormLabel, Heading, VStack, Input } from '@chakra-ui/react';
-import React from 'react';
+import { Container, Divider, FormControl, FormLabel, Heading, VStack, Input } from '@chakra-ui/react';
+import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { changeName } from 'redux/slice/nameSlice';
 
-interface IParentTwoProps {
-  name: string;
-  setName: React.Dispatch<React.SetStateAction<string>>;
-}
+const ParentTwo = () => {
+  const dispatch = useDispatch();
 
-const ParentTwo = ({ name, setName }: IParentTwoProps) => {
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(changeName(e.target.value));
+    },
+    [dispatch]
+  );
 
   return (
     <Container
@@ -24,11 +26,10 @@ const ParentTwo = ({ name, setName }: IParentTwoProps) => {
           ParentTwo
         </Heading>
         <Divider />
-        <Box>Name - {name}</Box>
         <Container maxW='2xl' mt={2.5}>
           <FormControl>
             <FormLabel>Name</FormLabel>
-            <Input type='text' onChange={handleNameChange} />
+            <Input type='text' onChange={handleChange} />
           </FormControl>
         </Container>
       </VStack>

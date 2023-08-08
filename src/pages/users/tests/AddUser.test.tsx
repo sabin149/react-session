@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+// component Testing
+=======
+>>>>>>> main
 import { describe, it, expect, beforeEach } from 'vitest';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 

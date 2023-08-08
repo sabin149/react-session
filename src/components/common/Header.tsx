@@ -22,7 +22,9 @@ const Header = () => {
           <HStack as='nav' spacing={4} display={{ base: 'none', md: 'flex' }} alignItems='center'>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
-            <Link to='/demo'>Simple Demo</Link>
+            <Link to='/memo'>Memo Example</Link>
+            <Link to='/use-callback'>UseCallback Example</Link>
+            <Link to='/use-memo'>UseMemo Example</Link>
           </HStack>
         </HStack>
         <Spacer />
@@ -43,6 +45,9 @@ const Header = () => {
           <HStack as='nav' spacing={4} alignItems='flex-start' flexDirection={'column'}>
             <Link to='/'>Home</Link>
             <Link to='/users'>Users</Link>
+            <Link to='/memo'>Memo Example</Link>
+            <Link to='/use-callback'>UseCallback Example</Link>
+            <Link to='/use-memo'>UseMemo Example</Link>
           </HStack>
         </Box>
       ) : null}

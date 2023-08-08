@@ -1,13 +1,13 @@
 {
   "users": [
     {
-      "id": 33211378,
-      "name": "John Doe1",
-      "email": "john@doe.com",
-      "age": 20,
-      "gender": "male",
-      "phoneNumber": "9841247731",
-      "status": "inactive"
+      "id": 83144684,
+      "name": "Kristina Neupane",
+      "email": "kris@gmail.com",
+      "age": 23,
+      "gender": "female",
+      "phoneNumber": "9812345671",
+      "status": "active"
     }
   ]
 }

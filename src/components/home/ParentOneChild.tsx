@@ -1,7 +1,7 @@
 import { Container, Heading, VStack } from '@chakra-ui/react';
 import ParentOneChildChild from './ParentOneChildChild';
 
-const ParentOneChild = ({ name }: { name: string }) => {
+const ParentOneChild = () => {
   return (
     <Container
       maxW={'5xl'}
@@ -15,7 +15,7 @@ const ParentOneChild = ({ name }: { name: string }) => {
           ParentOneChild
         </Heading>
       </VStack>
-      <ParentOneChildChild name={name} />
+      <ParentOneChildChild />
     </Container>
   );
 };

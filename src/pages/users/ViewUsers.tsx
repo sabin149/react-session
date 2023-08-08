@@ -1,10 +1,10 @@
 import { TableContainer, Table, Thead, Tr, Th, Tbody, Td, Heading, Box, ButtonGroup, Button, Card, CardBody, Flex } from '@chakra-ui/react';
-import GetBadgeByStatus from 'components/GetBadgeByStatus';
+import GetBadgeByStatus from 'components/common/GetBadgeByStatus';
 import useTitle from 'hooks/useTitile';
 import { useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { deleteUser, getAllUsers } from 'redux/slice/userSlice';
+import { deleteUser, getAllUsers, resetDeleteStatus } from 'redux/slice/userSlice';
 import { useAppDispatch, useAppSelector } from 'redux/store';
 import { ERROR, SUCCESS } from 'redux/constant/constant';
 
@@ -12,25 +12,29 @@ const ViewUsers = () => {
   useTitle('View Users');
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { usersData, usersStatus, usersError, deleteUserStatus } = useAppSelector((state) => state.user);
+  const { usersData, usersStatus, usersError } = useAppSelector((state) => state.user);
 
   const handleEdit = (userId: number) => {
     if (userId) navigate(`/users/update/${userId}`);
   };
 
-  const handleDelete = (userId: number) => {
+  const handleDelete = async (userId: number) => {
     if (userId) {
       const confirm = window.confirm('Are you sure you want to delete this user?');
-      if (confirm) dispatch(deleteUser(userId));
+      if (confirm) {
+        const res = await dispatch(deleteUser(userId)).unwrap();
+        if (res) {
+          toast.success('User Deleted Successfully!');
+          dispatch(resetDeleteStatus);
+        }
+      }
     }
   };
 
   useEffect(() => {
-    deleteUserStatus === SUCCESS && toast.success('User Deleted Successfully!');
-  }, [deleteUserStatus]);
-
-  useEffect(() => {
-    usersStatus === ERROR && toast.error(usersError);
+    if (usersStatus === ERROR) {
+      toast.error(usersError);
+    }
   }, [usersError, usersStatus]);
 
   useEffect(() => {
@@ -43,11 +47,10 @@ const ViewUsers = () => {
         <Heading as='h3' size='lg' mb={'7'}>
           All Users
         </Heading>
-        <Button colorScheme='green' onClick={() => navigate('/users/add')}>
+        <Button colorScheme='green' id='add_new_btn' onClick={() => navigate('/users/add')}>
           Add New
         </Button>
       </Flex>
-
       <Card>
         <CardBody>
           <TableContainer>
