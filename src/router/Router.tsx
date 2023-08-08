@@ -7,6 +7,7 @@ import Home from 'pages/home/Home';
 import MemoExample from 'pages/optimizations/MemoExample';
 import UseCallbackExample from 'pages/optimizations/UseCallbackExample';
 import UseMemoExample from 'pages/optimizations/UseMemoExample';
+import UseReducerExample from 'components/optimizations/UseReducerExample';
 
 const AddUser = lazy(() => import('pages/users/AddUser'));
 const UpdateUser = lazy(() => import('pages/users/UpdateUser'));
@@ -20,8 +21,10 @@ const Router = () => {
         <Route path='memo' element={<MemoExample />} />
         <Route path='use-callback' element={<UseCallbackExample />} />
         <Route path='use-memo' element={<UseMemoExample />} />
+        <Route path='use-reducer' element={<UseReducerExample />} />
 
         <Route path='users' element={<UserLayout />}>
+          <Route index element={<ViewUsers />} />
           <Route index element={<ViewUsers />} />
           <Route path='add' element={<AddUser />} />
           <Route path='update/:userId' element={<UpdateUser />} />

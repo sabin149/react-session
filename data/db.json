@@ -10,12 +10,48 @@
       "status": "inactive"
     },
     {
-      "id": 79312082,
+      "id": 793102082,
       "name": "sabind",
       "email": "banktest12@aloi.com",
       "age": 11,
       "gender": "male",
       "phoneNumber": "9841247730",
+      "status": "active"
+    },
+    {
+      "id": 37376042,
+      "name": "Test User",
+      "email": "testuser@localhost.com",
+      "age": 24,
+      "gender": "male",
+      "phoneNumber": "9841235687",
+      "status": "active"
+    },
+    {
+      "id": 94479770,
+      "name": "Test User",
+      "email": "testuser@localhost.com",
+      "age": 24,
+      "gender": "male",
+      "phoneNumber": "9841235687",
+      "status": "active"
+    },
+    {
+      "id": 55693320,
+      "name": "Aloi Admin",
+      "email": "aloi@admin.sg",
+      "age": 25,
+      "gender": "male",
+      "phoneNumber": "9841447831",
+      "status": "active"
+    },
+    {
+      "id": 50912346,
+      "name": "Aloi Admin",
+      "email": "aloi@admin.sg",
+      "age": 25,
+      "gender": "male",
+      "phoneNumber": "9841447831",
       "status": "active"
     }
   ]

@@ -67,7 +67,7 @@ const AddUpdateUserForm = ({ isEditing, userId }: { isEditing: boolean; userId?:
 
   useEffect(() => {
     if (addUserData.isSuccess || updateUserData.isSuccess) {
-      toast.success(`User ${isEditing ? 'updated' : 'added'} successfully!`, { duration: 100000 });
+      toast.success(`User ${isEditing ? 'updated' : 'added'} successfully!`);
       reset();
       navigate('/users');
     }

@@ -25,6 +25,7 @@ const Header = () => {
             <Link to='/memo'>Memo Example</Link>
             <Link to='/use-callback'>UseCallback Example</Link>
             <Link to='/use-memo'>UseMemo Example</Link>
+            <Link to='/use-reducer'>UseReducer Example</Link>
           </HStack>
         </HStack>
         <Spacer />
