@@ -3,6 +3,7 @@ import userReducer from 'redux/slice/userSlice';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
 
 const store = configureStore({
+  devTools: { name: 'ReduxUserStore' },
   reducer: {
     user: userReducer
   }
